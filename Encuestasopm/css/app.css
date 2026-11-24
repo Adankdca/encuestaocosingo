@@ -1,0 +1,215 @@
+/* ==========================================================================
+   Consulta Ciudadana Participativa · H. Ayuntamiento de Ocosingo 2024–2027
+   Paleta tomada del logotipo municipal y del Gobierno de Chiapas 2024–2030
+   ========================================================================== */
+:root {
+    --oco-950: #06301b;
+    --oco-900: #0a4427;
+    --oco-800: #0b5e33;   /* verde OCOSINGO */
+    --oco-600: #3f8a12;
+    --oco-500: #549c00;   /* verde medio del emblema */
+    --oco-300: #93e81a;   /* verde lima */
+    --oco-100: #e9f5e1;
+    --oco-50:  #f4faf0;
+    --agua:    #00a36b;
+    --guinda:  #9c1c2c;   /* Gobierno de Chiapas */
+    --guinda-700: #7d1422;
+    --chiapas-verde: #00907e;
+    --magenta: #c2266e;
+    --oro:     #e0c46c;
+    --rosa:    #dda0cc;
+    --morado:  #a8448a;
+    --tinta:   #1d2a22;
+    --tinta-2: #4b5a51;
+    --borde:   #dbe5dd;
+    --fondo:   #f5f7f4;
+    --radio:   14px;
+    --sombra:  0 1px 2px rgba(16, 40, 24, .06), 0 6px 20px rgba(16, 40, 24, .07);
+
+    --bs-body-font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    --bs-body-color: var(--tinta);
+    --bs-body-bg: var(--fondo);
+    --bs-link-color-rgb: 11, 94, 51;
+    --bs-link-hover-color-rgb: 10, 68, 39;
+    --bs-border-radius: 10px;
+    --bs-focus-ring-color: rgba(84, 156, 0, .35);
+}
+
+body { -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4 { color: var(--oco-900); font-weight: 700; letter-spacing: -.01em; }
+.text-secundario { color: var(--tinta-2); }
+
+/* ---------- Botones ---------- */
+.btn { font-weight: 600; border-radius: 10px; }
+.btn-oco {
+    --bs-btn-color: #fff; --bs-btn-bg: var(--oco-800); --bs-btn-border-color: var(--oco-800);
+    --bs-btn-hover-color: #fff; --bs-btn-hover-bg: var(--oco-900); --bs-btn-hover-border-color: var(--oco-900);
+    --bs-btn-active-bg: var(--oco-950); --bs-btn-active-border-color: var(--oco-950);
+    --bs-btn-disabled-bg: #7d9c88; --bs-btn-disabled-border-color: #7d9c88;
+    --bs-btn-focus-shadow-rgb: 84, 156, 0;
+}
+.btn-lima {
+    --bs-btn-color: var(--oco-950); --bs-btn-bg: var(--oco-300); --bs-btn-border-color: var(--oco-300);
+    --bs-btn-hover-color: var(--oco-950); --bs-btn-hover-bg: #a9f046; --bs-btn-hover-border-color: #a9f046;
+    --bs-btn-active-bg: #82d10f; --bs-btn-active-border-color: #82d10f;
+    --bs-btn-focus-shadow-rgb: 147, 232, 26;
+}
+.btn-guinda {
+    --bs-btn-color: #fff; --bs-btn-bg: var(--guinda); --bs-btn-border-color: var(--guinda);
+    --bs-btn-hover-color: #fff; --bs-btn-hover-bg: var(--guinda-700); --bs-btn-hover-border-color: var(--guinda-700);
+    --bs-btn-active-bg: var(--guinda-700); --bs-btn-focus-shadow-rgb: 156, 28, 44;
+}
+.btn-contorno {
+    --bs-btn-color: var(--oco-800); --bs-btn-border-color: #b9cdbf; --bs-btn-bg: #fff;
+    --bs-btn-hover-color: var(--oco-900); --bs-btn-hover-bg: var(--oco-50); --bs-btn-hover-border-color: var(--oco-600);
+    --bs-btn-active-bg: var(--oco-100); --bs-btn-active-color: var(--oco-900);
+}
+
+/* ---------- Franja de colores del logotipo ---------- */
+.franja { display: flex; height: 6px; }
+.franja span { flex: 1; }
+.franja span:nth-child(1), .franja span:nth-child(8) { background: var(--morado); }
+.franja span:nth-child(2), .franja span:nth-child(7) { background: var(--oro); }
+.franja span:nth-child(3), .franja span:nth-child(6) { background: #66c66a; }
+.franja span:nth-child(4), .franja span:nth-child(5) { background: var(--rosa); }
+
+/* ---------- Encabezado público ---------- */
+.encabezado { background: #fff; position: sticky; top: 0; z-index: 1020; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+.encabezado__barra { display: flex; align-items: center; justify-content: space-between; padding-top: .6rem; padding-bottom: .6rem; gap: 1rem; }
+.encabezado__marca { display: flex; align-items: center; gap: .75rem; text-decoration: none; color: inherit; }
+.encabezado__marca img { width: auto; height: 54px; }
+.encabezado__marca small { display: block; font-size: .78rem; color: var(--tinta-2); text-transform: uppercase; letter-spacing: .04em; }
+.encabezado__marca strong { display: block; font-size: 1.15rem; color: var(--oco-800); line-height: 1.2; }
+.menu { background: var(--oco-800); }
+.menu .container { display: flex; gap: .25rem; overflow-x: auto; scrollbar-width: none; }
+.menu a { color: #e5f3e8; text-decoration: none; padding: .65rem .9rem; font-weight: 600; font-size: .95rem; white-space: nowrap; border-bottom: 3px solid transparent; }
+.menu a:hover, .menu a:focus { color: #fff; border-bottom-color: var(--oco-300); }
+
+/* ---------- Portada ---------- */
+.portada {
+    background:
+        radial-gradient(900px 420px at 85% 10%, rgba(147, 232, 26, .18), transparent 60%),
+        linear-gradient(135deg, var(--oco-950) 0%, var(--oco-800) 55%, #127245 100%);
+    color: #fff; padding: 4rem 0 4.5rem; position: relative; overflow: hidden;
+}
+.portada h1 { color: #fff; font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.08; font-weight: 800; }
+.portada h1 em { font-style: normal; color: var(--oco-300); }
+.portada .lead { color: #d7eadc; max-width: 36rem; }
+.portada__etiqueta { display: inline-block; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); color: #fff; padding: .3rem .8rem; border-radius: 999px; font-size: .85rem; font-weight: 600; margin-bottom: 1rem; }
+.portada__logo { background: #fff; border-radius: 24px; padding: 1.5rem; box-shadow: 0 20px 50px rgba(0,0,0,.25); max-width: 320px; margin-left: auto; }
+.portada__logo img { width: 100%; height: auto; }
+.portada__datos { display: flex; gap: 1.75rem; margin-top: 2rem; flex-wrap: wrap; }
+.portada__datos div { border-left: 3px solid var(--oco-300); padding-left: .75rem; }
+.portada__datos strong { display: block; font-size: 1.4rem; }
+.portada__datos span { color: #cfe5d5; font-size: .9rem; }
+
+.seccion { padding: 4rem 0; }
+.seccion--blanca { background: #fff; }
+.seccion__titulo { margin-bottom: 2rem; }
+.seccion__titulo p { color: var(--tinta-2); max-width: 44rem; }
+.subrayado { display: inline-block; position: relative; }
+.subrayado::after { content: ""; display: block; height: 4px; width: 56px; background: var(--guinda); border-radius: 4px; margin-top: .5rem; }
+
+.paso { background: #fff; border: 1px solid var(--borde); border-radius: var(--radio); padding: 1.5rem; height: 100%; }
+.paso__num { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--oco-100); color: var(--oco-800); font-weight: 800; font-size: 1.2rem; margin-bottom: .8rem; }
+
+/* Tarjetas de planes y programas */
+.grupo-titulo { display: flex; align-items: center; gap: .6rem; margin: 0 0 1rem; font-size: 1.35rem; }
+.grupo-titulo .badge { font-size: .75rem; }
+.tarjeta-plan { display: flex; gap: 1rem; background: #fff; border: 1px solid var(--borde); border-radius: var(--radio); padding: 1rem; height: 100%; transition: border-color .15s, box-shadow .15s; }
+.tarjeta-plan:hover { border-color: var(--oco-600); box-shadow: var(--sombra); }
+.tarjeta-plan img { width: 56px; height: 56px; flex: none; border-radius: 12px; }
+.tarjeta-plan h3 { font-size: 1.02rem; margin: 0 0 .25rem; }
+.tarjeta-plan p { font-size: .9rem; color: var(--tinta-2); margin: 0 0 .5rem; }
+.tarjeta-plan .btn { padding: .2rem .6rem; font-size: .85rem; }
+
+.consulta { background: linear-gradient(180deg, #fff 0%, var(--oco-50) 100%); }
+.consulta__cita { border-left: 5px solid var(--guinda); background: #fff; padding: 1.25rem 1.5rem; border-radius: 0 var(--radio) var(--radio) 0; box-shadow: var(--sombra); }
+.llamado { background: var(--guinda); color: #fff; border-radius: 20px; padding: 2rem; }
+.llamado h2 { color: #fff; }
+
+/* ---------- Pie ---------- */
+.pie { background: var(--oco-950); color: #cfe0d4; margin-top: 0; }
+.pie__contenido { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; padding-top: 2rem; padding-bottom: 2rem; }
+.pie__marca { display: flex; align-items: center; gap: 1rem; }
+.pie__marca img { background: #fff; border-radius: 12px; padding: .4rem; height: 96px; width: auto; }
+.pie__marca strong { color: #fff; }
+.pie__marca p { margin: 0; font-size: .9rem; }
+.pie__enlaces { display: flex; flex-direction: column; gap: .3rem; }
+.pie__enlaces a { color: #cfe0d4; }
+
+/* ---------- Modal de bienvenida ---------- */
+.bienvenida .modal-content { border: 0; border-radius: 22px; overflow: hidden; }
+.bienvenida__cabecera { background: linear-gradient(135deg, var(--oco-950), var(--oco-800)); color: #fff; padding: 1.75rem 1.75rem 1.5rem; position: relative; }
+.bienvenida__cabecera .btn-close { position: absolute; top: 1rem; right: 1rem; }
+.bienvenida__cabecera small { text-transform: uppercase; letter-spacing: .12em; color: var(--oco-300); font-weight: 700; font-size: .78rem; }
+.bienvenida__cabecera h2 { color: #fff; font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 800; margin: .35rem 0 0; }
+.bienvenida__cuerpo { padding: 1.5rem 1.75rem 1.75rem; }
+.bienvenida__lema { font-size: 1.35rem; font-weight: 800; color: var(--guinda); }
+.bienvenida__logos { display: flex; align-items: center; justify-content: center; gap: 1.5rem; background: var(--oco-50); padding: 1rem; border-top: 1px solid var(--borde); }
+.bienvenida__logos img { height: 70px; width: auto; }
+
+/* ---------- Encuesta ---------- */
+.encuesta .modal-content { border: 0; border-radius: 20px; overflow: hidden; }
+.encuesta .modal-header { background: var(--oco-800); color: #fff; border: 0; padding: 1rem 1.5rem; }
+.encuesta .modal-title { color: #fff; font-size: 1.1rem; }
+.encuesta .modal-body { padding: 1.5rem; background: #fff; }
+.encuesta .modal-footer { background: var(--oco-50); border-top: 1px solid var(--borde); }
+@media (max-width: 767.98px) { .encuesta .modal-content { border-radius: 0; } }
+
+.pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; margin-bottom: 1.5rem; list-style: none; padding: 0; counter-reset: paso; }
+.pasos li { counter-increment: paso; font-size: .9rem; font-weight: 600; color: #8a978f; padding-top: .6rem; border-top: 4px solid #e3ebe5; }
+.pasos li::before { content: counter(paso) ". "; }
+.pasos li.activo { color: var(--oco-800); border-top-color: var(--oco-500); }
+.pasos li.hecho { color: var(--oco-600); border-top-color: var(--oco-300); }
+
+.encuesta fieldset { margin-bottom: 1.35rem; }
+.encuesta legend, .encuesta .form-label { font-size: 1rem; font-weight: 600; color: var(--tinta); margin-bottom: .5rem; }
+.encuesta .requerido::after { content: " *"; color: var(--guinda); }
+.encuesta .ayuda { font-size: .85rem; color: var(--tinta-2); }
+.encuesta .form-control, .encuesta .form-select { border-color: #c9d6cc; padding: .6rem .8rem; }
+.encuesta .form-control:focus, .encuesta .form-select:focus { border-color: var(--oco-500); }
+
+/* Opciones tipo "píldora" (radio / checkbox) */
+.opciones { display: flex; flex-wrap: wrap; gap: .5rem; }
+.opcion { position: relative; }
+.opcion input { position: absolute; opacity: 0; inset: 0; pointer-events: none; }
+.opcion span { display: inline-flex; align-items: center; gap: .4rem; border: 1.5px solid #c9d6cc; border-radius: 999px; padding: .5rem 1rem; cursor: pointer; background: #fff; font-weight: 500; user-select: none; transition: all .12s; }
+.opcion span:hover { border-color: var(--oco-600); }
+.opcion input:checked + span { background: var(--oco-800); border-color: var(--oco-800); color: #fff; }
+.opcion input:focus-visible + span { box-shadow: 0 0 0 .25rem var(--bs-focus-ring-color); }
+.opciones--cuadros .opcion span { border-radius: 12px; }
+.opciones--cuadros input[type=checkbox] + span::before { content: ""; width: 18px; height: 18px; border: 2px solid #9fb3a5; border-radius: 5px; display: inline-block; flex: none; }
+.opciones--cuadros input[type=checkbox]:checked + span::before { background: var(--oco-300) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%2306301b' stroke-width='2.5' d='M3 8.5l3 3 7-7'/%3E%3C/svg%3E") center/12px no-repeat; border-color: var(--oco-300); }
+
+/* Selección de plan / programa */
+.planes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .75rem; }
+.plan-opcion { position: relative; }
+.plan-opcion input { position: absolute; opacity: 0; pointer-events: none; }
+.plan-opcion label { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .5rem; height: 100%; border: 1.5px solid var(--borde); border-radius: 14px; padding: .9rem .6rem; cursor: pointer; background: #fff; font-weight: 600; font-size: .92rem; transition: all .12s; }
+.plan-opcion img { width: 54px; height: 54px; border-radius: 12px; }
+.plan-opcion label:hover { border-color: var(--oco-600); }
+.plan-opcion input:checked + label { border-color: var(--oco-800); background: var(--oco-50); box-shadow: inset 0 0 0 1.5px var(--oco-800); }
+.plan-opcion input:focus-visible + label { box-shadow: 0 0 0 .25rem var(--bs-focus-ring-color); }
+.plan-elegido { background: var(--oco-50); border: 1px dashed var(--oco-600); border-radius: 12px; padding: .75rem 1rem; font-size: .92rem; }
+
+.error-campo { color: var(--guinda); font-size: .875rem; margin-top: .35rem; display: none; }
+.con-error .error-campo { display: block; }
+.con-error .form-control, .con-error .form-select { border-color: var(--guinda); }
+.con-error .opcion span, .con-error .plan-opcion label { border-color: #d9a3aa; }
+
+.campo-trampa { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+.exito { text-align: center; padding: 1.5rem .5rem; }
+.exito__icono { width: 84px; height: 84px; border-radius: 50%; background: var(--oco-100); display: grid; place-items: center; margin: 0 auto 1rem; }
+
+/* ---------- Aviso de privacidad ---------- */
+.documento { background: #fff; border: 1px solid var(--borde); border-radius: var(--radio); padding: 2rem; max-width: 52rem; margin: 2.5rem auto; }
+.documento h2 { font-size: 1.15rem; margin-top: 1.5rem; }
+
+/* ---------- Login ---------- */
+.login { min-height: 100vh; display: grid; place-items: center; background: linear-gradient(135deg, var(--oco-950), var(--oco-800)); padding: 1.5rem; }
+.login__caja { background: #fff; border-radius: 20px; width: 100%; max-width: 400px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,.3); }
+.login__cabecera { text-align: center; padding: 1.75rem 1.5rem 1rem; }
+.login__cabecera img { height: 110px; width: auto; }
+.login__cuerpo { padding: 0 1.75rem 1.75rem; }

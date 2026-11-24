@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="Encuestasopm.Site" %>
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Consulta Ciudadana Participativa | H. Ayuntamiento de Ocosingo</title>
+    <meta name="description" content="Participa en la Consulta Ciudadana sobre los planes y programas del Gobierno Municipal de Ocosingo, Chiapas." />
+    <meta name="theme-color" content="#0b5e33" />
+    <link rel="icon" type="image/png" href="<%= Url("~/img/emblema-ocosingo.png") %>" />
+    <link rel="stylesheet" href="<%= Url("~/lib/bootstrap.min.css") %>" />
+    <link rel="stylesheet" href="<%= Url("~/css/app.css") %>" />
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body class="sitio-publico">
+    <a class="visually-hidden-focusable" href="#contenido">Saltar al contenido</a>
+
+    <header class="encabezado">
+        <div class="container encabezado__barra">
+            <a class="encabezado__marca" href="<%= Url("~/Default.aspx") %>">
+                <img src="<%= Url("~/img/emblema-ocosingo.png") %>" alt="" width="46" height="62" />
+                <span>
+                    <small>H. Ayuntamiento de Ocosingo · 2024–2027</small>
+                    <strong>Consulta Ciudadana Participativa</strong>
+                </span>
+            </a>
+        </div>
+        <div class="franja" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <nav class="menu" aria-label="Principal">
+            <div class="container">
+                <a href="<%= Url("~/Default.aspx") %>#inicio">Inicio</a>
+                <a href="<%= Url("~/Default.aspx") %>#planes">Planes y programas</a>
+                <a href="<%= Url("~/Default.aspx") %>#consulta">¿Qué es la consulta?</a>
+                <a href="<%= Url("~/AvisoPrivacidad.aspx") %>">Aviso de privacidad</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="contenido">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+    </main>
+
+    <footer class="pie">
+        <div class="container pie__contenido">
+            <div class="pie__marca">
+                <img src="<%= Url("~/img/logo-ocosingo-sm.png") %>" alt="H. Ayuntamiento de Ocosingo 2024–2027" width="127" height="160" />
+                <div>
+                    <strong>H. Ayuntamiento de Ocosingo, Chiapas</strong>
+                    <p>Por ti, un nuevo gobierno, palabra de mujer.</p>
+                    <%-- Agrega aquí domicilio y teléfono oficiales del Ayuntamiento --%>
+                </div>
+            </div>
+            <div class="pie__enlaces">
+                <a href="<%= Url("~/AvisoPrivacidad.aspx") %>">Aviso de privacidad</a>
+                <a href="<%= Url("~/Login.aspx") %>">Acceso para personal</a>
+            </div>
+        </div>
+        <div class="franja" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </footer>
+
+    <script src="<%= Url("~/lib/bootstrap.bundle.min.js") %>"></script>
+    <asp:ContentPlaceHolder ID="scripts" runat="server" />
+</body>
+</html>

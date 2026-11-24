@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.Master.cs" Inherits="Encuestasopm.Site1" %>
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Panel · Consulta Ciudadana Ocosingo</title>
+    <link rel="icon" type="image/png" href="<%= Url("~/img/emblema-ocosingo.png") %>" />
+    <link rel="stylesheet" href="<%= Url("~/lib/bootstrap.min.css") %>" />
+    <link rel="stylesheet" href="<%= Url("~/css/app.css") %>" />
+    <link rel="stylesheet" href="<%= Url("~/css/panel.css") %>" />
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body class="sitio-panel">
+    <header class="panel-cabecera">
+        <div class="container-xxl panel-cabecera__barra">
+            <a class="encabezado__marca" href="<%= Url("~/admin/Panel.aspx") %>">
+                <img src="<%= Url("~/img/emblema-ocosingo.png") %>" alt="" width="34" height="46" />
+                <span>
+                    <small>H. Ayuntamiento de Ocosingo</small>
+                    <strong>Panel de la Consulta Ciudadana</strong>
+                </span>
+            </a>
+            <nav class="panel-menu" aria-label="Panel">
+                <a href="<%= Url("~/admin/Panel.aspx") %>" class="<%= Activo("Panel") %>">Resumen</a>
+                <a href="<%= Url("~/admin/Reporte.aspx") %>" class="<%= Activo("Reporte") %>" target="_blank" rel="noopener">Reporte</a>
+                <a href="<%= Url("~/Default.aspx") %>" target="_blank" rel="noopener">Ver encuesta</a>
+            </nav>
+            <div class="dropdown">
+                <button class="btn btn-contorno btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <%= NombreUsuario %>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#modalPassword">Cambiar contraseña</button></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="<%= Url("~/Login.aspx") %>?salir=1">Cerrar sesión</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="franja" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </header>
+
+    <main class="container-xxl py-4">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+    </main>
+
+    <footer class="container-xxl pb-4 small text-secundario d-flex justify-content-between flex-wrap gap-2">
+        <span>H. Ayuntamiento de Ocosingo, Chiapas · 2024–2027</span>
+    </footer>
+
+    <!-- Cambio de contraseña -->
+    <div class="modal fade" id="modalPassword" tabindex="-1" aria-labelledby="tituloPassword" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <form class="modal-content" id="formPassword" autocomplete="off">
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="tituloPassword">Cambiar contraseña</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label" for="pwActual">Contraseña actual</label>
+                        <input type="password" class="form-control" id="pwActual" name="actual" autocomplete="current-password" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="pwNueva">Nueva contraseña</label>
+                        <input type="password" class="form-control" id="pwNueva" name="nueva" minlength="10" autocomplete="new-password" required />
+                        <div class="form-text">Mínimo 10 caracteres.</div>
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label" for="pwConfirma">Confirma la nueva contraseña</label>
+                        <input type="password" class="form-control" id="pwConfirma" autocomplete="new-password" required />
+                    </div>
+                    <div class="alert mt-3 mb-0 py-2" id="pwMensaje" hidden></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-contorno" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-oco">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="<%= Url("~/lib/bootstrap.bundle.min.js") %>"></script>
+    <script>
+        (function () {
+            var f = document.getElementById('formPassword'), msg = document.getElementById('pwMensaje');
+            function aviso(texto, ok) { msg.hidden = false; msg.className = 'alert mt-3 mb-0 py-2 ' + (ok ? 'alert-success' : 'alert-danger'); msg.textContent = texto; }
+            f.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (f.nueva.value !== document.getElementById('pwConfirma').value) { aviso('La confirmación no coincide.'); return; }
+                var datos = new URLSearchParams(); datos.append('actual', f.actual.value); datos.append('nueva', f.nueva.value);
+                fetch('<%= ResolveUrl("~/admin/Datos.ashx") %>?accion=password', { method: 'POST', body: datos, headers: { 'X-Requested-With': 'fetch' } })
+                    .then(function (r) { return r.json(); })
+                    .then(function (r) { aviso(r.mensaje, r.ok); if (r.ok) f.reset(); })
+                    .catch(function () { aviso('No se pudo guardar. Intenta de nuevo.'); });
+            });
+        })();
+    </script>
+    <asp:ContentPlaceHolder ID="scripts" runat="server" />
+</body>
+</html>

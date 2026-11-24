@@ -1,0 +1,52 @@
+/* ---------- Reporte imprimible (carta) ---------- */
+@page { size: letter; margin: 14mm 14mm 16mm; @bottom-right { content: "Página " counter(page) " de " counter(pages); font-size: 8pt; color: #4b5a51; } }
+body { background: #e9ede9; font-size: 10pt; }
+.barra-acciones { position: sticky; top: 0; z-index: 5; background: #fff; border-bottom: 1px solid var(--borde); display: flex; justify-content: space-between; align-items: center; padding: .5rem 1rem; font-size: .9rem; color: var(--tinta-2); }
+.hoja { background: #fff; width: 216mm; min-height: 279mm; margin: 1.25rem auto; padding: 14mm; box-shadow: 0 4px 24px rgba(0,0,0,.12); }
+.rep-cabecera { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: .6rem; }
+.rep-titulo { text-align: center; flex: 1; }
+.rep-titulo__inst { font-size: 8.5pt; text-transform: uppercase; letter-spacing: .08em; color: var(--tinta-2); font-weight: 600; }
+.rep-titulo h1 { font-size: 20pt; margin: .1rem 0; color: var(--oco-800); font-weight: 800; }
+.rep-titulo__sub { font-size: 9.5pt; color: var(--guinda); font-weight: 600; }
+.rep-ficha { width: 100%; margin: .8rem 0 .4rem; font-size: 9pt; border-collapse: collapse; }
+.rep-ficha th { color: var(--tinta-2); font-weight: 600; width: 16%; padding: .2rem .4rem .2rem 0; }
+.rep-ficha td { padding: .2rem .8rem .2rem 0; }
+.hoja h2 { font-size: 12.5pt; color: var(--oco-800); border-bottom: 2px solid var(--oco-100); padding-bottom: .25rem; margin: 1.1rem 0 .6rem; }
+.hoja h3 { font-size: 10pt; color: var(--tinta); margin: 0 0 .3rem; }
+.rep-resumen { margin: 0; padding-left: 1.1rem; }
+.rep-resumen li { margin-bottom: .3rem; line-height: 1.45; }
+.rep-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+.rep-kpi { border: 1px solid var(--borde); border-radius: 8px; padding: .5rem .7rem; }
+.rep-kpi b { display: block; font-size: 17pt; color: var(--tinta); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.rep-kpi span { font-size: 8.5pt; color: var(--tinta-2); }
+.rep-kpi:first-child { background: var(--oco-800); border-color: var(--oco-800); }
+.rep-kpi:first-child b { color: #fff; }
+.rep-kpi:first-child span { color: #cfe5d5; }
+.rep-fila { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; align-items: start; }
+.rep-fila.tres { grid-template-columns: 1fr 1fr 1.3fr; }
+.rep-figura { margin: 0; }
+.rep-figura figcaption { font-size: 8.5pt; color: var(--tinta-2); margin-bottom: .2rem; }
+.lienzo-rep { position: relative; height: 190px; }
+.lienzo-rep.medio { height: 250px; }
+.lienzo-rep.alto { height: 300px; }
+.leyenda-rep { display: flex; gap: 1rem; font-size: 8.5pt; color: var(--tinta-2); }
+.leyenda-rep i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: .3rem; }
+.tabla-rep { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
+.tabla-rep th { background: var(--oco-50); color: var(--oco-900); font-weight: 700; text-align: left; padding: .3rem .4rem; border-bottom: 1px solid #cfdccf; }
+.tabla-rep td { padding: .28rem .4rem; border-bottom: 1px solid #edf1ed; vertical-align: top; }
+.tabla-rep .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tabla-rep.anexo td { font-size: 8pt; }
+#tTemas th:first-child, #tTemas td:first-child { width: 50%; }
+.nota { font-size: 8.5pt; color: var(--tinta-2); }
+.rep-pie { margin-top: 1.5rem; padding-top: .5rem; border-top: 1px solid var(--borde); font-size: 7.5pt; color: var(--tinta-2); }
+
+@media print {
+    body { background: #fff; }
+    .no-imprimir { display: none !important; }
+    .hoja { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; }
+    .evitar-corte { break-inside: avoid; }
+    .salto-antes { break-before: page; }
+    .tabla-rep tr { break-inside: avoid; }
+    .tabla-rep thead { display: table-header-group; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

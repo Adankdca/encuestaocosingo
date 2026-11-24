@@ -1,0 +1,1 @@
+﻿Carpeta privada: adjuntos de ciudadanos (adjuntos/) y bitacora de errores (logs/). Requiere permiso de escritura para el Application Pool.

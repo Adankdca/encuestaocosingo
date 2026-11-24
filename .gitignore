@@ -1,0 +1,42 @@
+# ===== Visual Studio =====
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# ===== Compilación =====
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.pdb
+
+# ===== Paquetes NuGet (se restauran solos al compilar) =====
+packages/
+!packages/build/
+*.nupkg
+
+# ===== Publicación =====
+[Pp]ublish/
+PublishProfiles/
+*.pubxml.user
+
+# ===== Datos de la aplicación (no se suben al repositorio) =====
+# Archivos que adjuntan los ciudadanos y bitácora de errores
+Encuestasopm/App_Data/adjuntos/
+Encuestasopm/App_Data/logs/
+# Archivos de la versión anterior
+Encuestasopm/uploads/
+
+# ===== Respaldos de base de datos =====
+*.bak
+*.mdf
+*.ldf
+
+# ===== Varios =====
+Thumbs.db
+Desktop.ini
+*.log
+*.tmp
